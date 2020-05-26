@@ -1,0 +1,56 @@
+/* Background Waves*/
+.wave {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  margin-top: 100px;
+
+  @include MQ(XXS) { height: 21px; }
+
+  & img { width: 100%; }
+
+  & .wavebg {    
+    @include MQ(XXS) {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  & .wave-transparent {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: -10px;
+    opacity: 0.2;
+    z-index: 1;
+    
+    @include MQ(XXS) { top: -5px; } 
+  }
+  &.wave-bg1 { position: relative; }
+  &.wave-bg2 { background-color: $white; }
+  &.wave-bg3 { background-color: $mint; }
+  &.wave-bg4 { background-color: $sky; }
+  &.wave-bg5 { background-color: $orange; }
+  &.wave-bg6 { background-color: $mint; }
+
+  & .circle-down-arrow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    top: 20%;
+    color: #000;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: $white;
+    z-index: 1;
+    
+    /* Responsive placement of circle down arrow  */
+    @include MQ(L) { top: 10%; }
+    @include MQ(M) { top: 0; }
+    @include MQ(S) { top: -10px; }
+    @include MQ(XXS) { top : -15px; left: 45%; }
+
+    & .fa-chevron-down { margin-top: 21px; margin-left: 21px; }
+  }
+}

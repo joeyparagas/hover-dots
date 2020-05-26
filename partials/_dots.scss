@@ -1,0 +1,264 @@
+// Box Measurements
+$box-width: 250px;
+$box-height: 350px;
+
+/* Hover Boxes */ 
+.dot-col { 
+  position: relative; 
+}
+.dot-box {
+  position: absolute;
+  width: $box-width;
+  height: $box-height;
+
+  .dot-title { 
+    position: relative;
+    bottom: -140px;       // Distance between dot and title
+    width: 100%;
+    text-align: center;
+    transition: all 0.75s ease;
+    transition-delay: 0.2s;
+
+    p { 
+      font-size: 2.2rem;
+      color: $white;
+      font-weight: 700;
+      line-height: 38px;
+      position: relative; 
+
+      @include MQ(S) {
+        font-size: 1.8rem;
+        line-height: 30px;
+      }
+    }
+  }
+  .dot-container {
+    position: relative;
+    width: $box-width;
+    height: $box-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* keep this 1 to be over the dot title */
+
+    .dot-mask { 
+      position: absolute;
+      width: $box-width;
+      height: $box-height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: box-shadow ease 1s;
+
+      .dot-pulse, .dot-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+
+      .dot-pulse {
+        position: absolute;
+        animation: pulse 1.2s ease infinite;
+        background: $white;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1, 1);
+        }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .dot-circle { 
+        border: 1px solid rgba(225, 227, 232, 0.18);
+        // box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.6s ease;
+        transition-delay: 0.22s;
+        will-change: transform;
+      }
+
+      .dot-content {
+        position: absolute;
+        // This centers dot, but not working with IE11
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        padding: 1.5rem;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        transition-delay: 0.3s;
+
+          h2 {
+            text-align: center;
+            color: $orange;
+            font-weight: 600;
+          }
+
+          .dot-icon {
+            position: relative;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: flex;
+            align-items: center;      // vertical align
+            justify-content: center;  // horizontal align
+            margin-bottom: 15px;
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            color: $white;
+            background-color: $orange;
+          }
+
+          p {
+            font-family: $secondary-font;
+            color: $light-gray;
+            font-size: 0.9rem;
+          }
+      
+      }
+    }
+  }
+}
+
+/* hover effects */
+.dot-box:hover .dot-mask {
+  box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
+  transition-delay: 0.32s;
+}
+.dot-box:hover .dot-circle {
+  transform: translateY(-32px) scale(10);
+}
+.dot-box:hover .dot-title {
+  opacity: 0;
+  transform: translateY(50px) scale(.8);
+}
+.dot-box:hover .dot-content {
+  /* reveal content on hover */
+  opacity: 1 !important;
+}
+
+/* dot positions */
+.security { 
+  top: 20px; 
+
+  @include MQ(IE) { top: 0px; }
+  @include MQ(S) { top: 50px; }
+  @include MQ(XS) { top: 0px; }
+}
+
+.certifciations {
+  top: -70px;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  @include MQ(IE) { top: -90px; }
+  @include MQ(S) { top: -40px; left: -20px; }
+  @include MQ(XS) { top: 0px; }
+}
+
+.production-env {
+  right: 0;
+
+  @include MQ(IE) { top: -20px; }
+  @include MQ(S) { top: 30px; }
+  @include MQ(XS) { top: 0px}
+}
+
+.security, .certifciations, .production-env  {
+  @include MQ(XS) {
+    left: 0;
+    right: 0;
+    top: -70px;
+    margin: auto;
+  }  
+  @include MQ(XSIE) { top: -90px; }
+}
+
+.disaster-rec { 
+  right: 40px; 
+  top: -40px; 
+
+  @include MQ(IE) { top: -60px; }
+
+  @include MQ(S) {
+    right: unset;
+    top: -40px;
+    left: 15px;
+  }
+
+  @include MQ(XS) {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  @include MQ(XSIE) { top: -70px; }
+} 
+
+.quality { 
+  left: 40px; 
+
+  @include MQ(IE) { top: -20px; }
+
+  @include MQ(S) {
+    left: unset;
+    right: 15px;
+    top: -40px;
+  }
+  @include MQ(SIE) {
+    // left: inherit;
+  }
+  @include MQ(XS) {
+    left: 0;
+    right: 0;
+    top: -70px;
+    margin: auto;
+  }
+  @include MQ(XSIE) {
+    top: -110px;
+  }
+}
+
+/* pulse animation delay - */
+.certifciations .dot-pulse, .disaster-rec .dot-pulse {
+  animation-delay: 0.3s !important;
+}
+
+/* IE compatibility */
+@include MQ(IE) { 
+  .dot-mask {
+    left: 0;
+    top: 40px;
+  }
+
+  .dot-content {
+    left: 0;
+    top: 0;
+  }
+
+  .dot-pulse { 
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .dot-box .dot-title { 
+    /* Spacing between dot and title */
+    bottom: -170px;
+  }
+}

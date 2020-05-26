@@ -1,0 +1,130 @@
+@import "../partials/bourbon/bourbon"; // http://bourbon.io/
+
+@import "../partials/variables"; // colors, fonts etc...
+
+@import "../partials/mixins"; // custom mixins
+
+@import "../partials/layout"; // responsive grid and media queries
+
+@import "../partials/wave"; // wave background 
+
+@import "../partials/dots"; // dots: hover and blip effect
+
+
+
+/* -------------------------------- 
+Main small components 
+-------------------------------- */
+*,
+*::after,
+*::before {
+  @include box-sizing(border-box);
+}
+
+a {
+  color: $gray;
+  text-decoration: none;
+}
+
+h1 {
+  color: $white;
+  @include font-size(30px);
+  text-align: center;
+}
+
+
+
+/* -------------------------------- 
+Main large components 
+-------------------------------- */
+html,
+body {
+  height: 100%;
+  @include MQ(S) {
+    overflow-x: hidden;
+  }
+}
+
+body {
+  font: {
+    size: 100%;
+    family: $primary-font; // variables inside partials > _variables.scss
+  }
+  color: $white;
+}
+
+header {
+  position: fixed;
+  background-color: unset;
+  & .row {
+    min-height: 10rem;
+    align-items: center;
+  }
+}
+
+/* -------------------------------- 
+Main components 
+-------------------------------- */
+
+/* Sections */
+section {
+  position: relative;
+  // padding-top: 40px;
+  color: $gray;
+  & .row { justify-content: center; }
+}
+
+/* Section backgrounds */ 
+.first {
+  background-image: url(../images/bg1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: $white ;
+}
+.second { background-color: $white; }
+.third { background-color: $mint; }
+.fourth { background-color: $sky; }
+
+.solid-foundation { 
+  background-color: $orange; 
+
+  & .section-title {
+    font-family: $primary-font;
+    font-weight: 700;
+    padding-top: 30px;
+    color: $white;
+    font-size: 5rem;
+    text-align: center;
+
+    @include MQ(L) { font-size: 3.8rem; }
+    @include MQ(S) { font-size: 3rem; }
+  }
+
+  & .top-sm {
+    display: none;
+    @include MQ(XS) { display: block;}
+  }
+
+  & .top{ 
+    height: 300px; 
+    @include MQ(XS) { height: 450px; }
+    @include MQ(XSIE) { height: 500px; }
+  }
+
+  & .mid {
+    @include MQ(XS) { display: none;}
+  }
+  
+  & .bottom { 
+    height: 420px; 
+    @include MQ(S) { height: 300px; }
+    @include MQ(XS) { height: 350px; }
+    @include MQ(XSIE) { height: 400px; }
+  }
+  
+}
+.sixth { background-color: $mint; }
+.seventh { background-color: $sky; }
+.text-content {padding-bottom: 150px; }
+
