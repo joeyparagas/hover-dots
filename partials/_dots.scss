@@ -151,13 +151,15 @@ $box-height: 350px;
   opacity: 1 !important;
 }
 
-/* dot positions */
+/* dot and fontawesome positions */
 .security { 
   top: 20px; 
 
   @include MQ(IE) { top: 0px; }
   @include MQ(S) { top: 50px; }
-  @include MQ(XS) { top: 0px; }
+  @include MQ(SIE) { top: -30px; left: -15px;}
+  @include MQ(XS) { top: -100px; }
+  @include MQ(XSIE) { top: -130px; }
 }
 
 .certifciations {
@@ -166,27 +168,38 @@ $box-height: 350px;
   right: 0;
   margin: auto;
 
+  & .dot-container .dot-mask .dot-content .dot-icon {
+    padding-top: 3px;
+  }
+
   @include MQ(IE) { top: -90px; }
   @include MQ(S) { top: -40px; left: -20px; }
-  @include MQ(XS) { top: 0px; }
+  @include MQ(SIE) { top: -100px; left: -30px; }
+  @include MQ(XS) { top: -50px; }
+  @include MQ(XSIE) { top: -90px; }
 }
 
 .production-env {
   right: 0;
 
+  & .dot-container .dot-mask .dot-content .dot-icon {
+    padding-top: 2px;
+  }
+
   @include MQ(IE) { top: -20px; }
   @include MQ(S) { top: 30px; }
-  @include MQ(XS) { top: 0px}
+  @include MQ(SIE) { top: -30px; right: -15px; }
+  @include MQ(XS) { top: -30px}
+  @include MQ(XSIE) { top: -70px; }
 }
 
 .security, .certifciations, .production-env  {
+  /* Center align */ 
   @include MQ(XS) {
     left: 0;
     right: 0;
-    top: -70px;
     margin: auto;
-  }  
-  @include MQ(XSIE) { top: -90px; }
+  } 
 }
 
 .disaster-rec { 
@@ -194,44 +207,40 @@ $box-height: 350px;
   top: -40px; 
 
   @include MQ(IE) { top: -60px; }
-
   @include MQ(S) {
     right: unset;
     top: -40px;
     left: 15px;
   }
-
+  @include MQ(SIE) { top: -100px; }
   @include MQ(XS) {
     left: 0;
     right: 0;
+    top: 50px;
     margin: auto;
   }
-
-  @include MQ(XSIE) { top: -70px; }
+  @include MQ(XSIE) { top: 0px; }
 } 
 
 .quality { 
   left: 40px; 
 
-  @include MQ(IE) { top: -20px; }
+  & .dot-container .dot-mask .dot-content .dot-icon { padding-top: 7px; }
 
+  @include MQ(IE) { top: -20px; }
   @include MQ(S) {
     left: unset;
     right: 15px;
     top: -40px;
   }
-  @include MQ(SIE) {
-    // left: inherit;
-  }
+  @include MQ(SIE) { top: -100px; }
   @include MQ(XS) {
     left: 0;
     right: 0;
-    top: -70px;
+    top: -75px;
     margin: auto;
   }
-  @include MQ(XSIE) {
-    top: -110px;
-  }
+  @include MQ(XSIE) { top: -100px; }
 }
 
 /* pulse animation delay - */

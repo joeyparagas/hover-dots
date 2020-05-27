@@ -89,7 +89,7 @@ section {
 .solid-foundation { 
   background-color: $orange; 
 
-  & .section-title {
+  .section-title {
     font-family: $primary-font;
     font-weight: 700;
     padding-top: 30px;
@@ -101,26 +101,26 @@ section {
     @include MQ(S) { font-size: 3rem; }
   }
 
-  & .top-sm {
+  .top-sm {
     display: none;
     @include MQ(XS) { display: block;}
   }
 
-  & .top{ 
+  .top{ 
     height: 300px; 
     @include MQ(XS) { height: 450px; }
     @include MQ(XSIE) { height: 500px; }
   }
 
-  & .mid {
+  .mid {
     @include MQ(XS) { display: none;}
   }
   
-  & .bottom { 
+  .bottom { 
     height: 420px; 
     @include MQ(S) { height: 300px; }
-    @include MQ(XS) { height: 350px; }
-    @include MQ(XSIE) { height: 400px; }
+    @include MQ(XS) { height: 650px; }
+    @include MQ(XSIE) { height: 600px; }
   }
   
 }
